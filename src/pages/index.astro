@@ -1,0 +1,581 @@
+---
+import '../styles/global.css';
+
+const portfolioImages = [
+  { id: 1, name: 'bride-portfolio-1', category: 'Wedding', title: 'Makeup Wedding Jombang - Eternal Elegance' },
+  { id: 2, name: 'party-portfolio1', category: 'Party', title: 'Makeup Wisuda & Party - Midnight Glam' },
+  { id: 3, name: 'bride-portfolio-2', category: 'Wedding', title: 'Rias Pengantin Tradisional Jombang' },
+  { id: 4, name: 'bride-portfolio-3', category: 'Wedding', title: 'Modern Bridal Makeup Jombang' },
+  { id: 5, name: 'bride-portfolio-4', category: 'Wedding', title: 'Makeup Wedding Premium Jawa Timur' },
+  { id: 6, name: 'party-portfolio2', category: 'Party', title: 'Elegant Evening Makeup' },
+  { id: 7, name: 'carnaval-portfolio1', category: 'Event', title: 'Makeup Carnaval & Event Jombang' }
+];
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liza Makeup | Professional MUA Jombang & Jawa Timur</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Liza Makeup - Layanan makeup profesional premium di Jombang. Spesialis Wedding, Engagement, & Event. Melayani area Jogoroto, Jombang, dan sekitarnya. Booking sekarang!">
+    <meta name="keywords" content="mua jombang, makeup artist jombang, liza makeup, makeup wedding jombang, mua jogoroto, makeup wisuda jombang, rias pengantin jombang">
+    <meta name="author" content="Liza Makeup">
+    <link rel="canonical" href="https://lizamakeup.vercel.app/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lizamakeup.vercel.app/">
+    <meta property="og:title" content="Liza Makeup | Professional MUA Jombang">
+    <meta property="og:description" content="Layanan makeup profesional premium untuk momen spesial Anda di Jombang dan sekitarnya.">
+    <meta property="og:image" content="https://lizamakeup.vercel.app/img-jpeg/bride-portfolio-1.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Liza Makeup | MUA Jombang">
+    <meta property="twitter:description" content="Layanan makeup profesional premium untuk Wedding & Event di Jombang.">
+
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BeautySalon",
+      "name": "Liza Makeup",
+      "image": "https://lizamakeup.vercel.app/img-jpeg/bride-portfolio-1.jpg",
+      "@id": "https://lizamakeup.vercel.app",
+      "url": "https://lizamakeup.vercel.app",
+      "telephone": "+6282139330827",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Dsn Kemirigalih, RT.1/RW.1, Sawiji, Jogoroto",
+        "addressLocality": "Jombang",
+        "addressRegion": "Jawa Timur",
+        "postalCode": "61485",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -7.5623,
+        "longitude": 112.2345 
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "sameAs": [
+        "https://www.instagram.com/liza_makeuppp",
+        "https://www.tiktok.com/@liza_makeupp"
+      ]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <!-- Flatpickr (Custom Date/Time Pickers) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/light.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" id="dynamic-favicon">
+
+    <script is:inline>
+        // Generate Dynamic Favicon
+        function generateFavicon() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 64;
+            canvas.height = 64;
+            const ctx = canvas.getContext('2d');
+            
+            // Wait for Playfair Display to load
+            document.fonts.load('italic 50px "Playfair Display"').then(() => {
+                ctx.clearRect(0, 0, 64, 64);
+                ctx.font = 'italic 56px "Playfair Display"';
+                ctx.fillStyle = '#d4af37';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('L', 32, 36);
+                
+                const link = document.getElementById('dynamic-favicon');
+                if (link) link.href = canvas.toDataURL('image/png');
+            });
+        }
+        
+        // Try generating on load and after a short delay to ensure font availability
+        window.addEventListener('DOMContentLoaded', generateFavicon);
+        setTimeout(generateFavicon, 2000);
+    </script>
+</head>
+<body class="antialiased selection:bg-champagne selection:text-white">
+
+    <div id="custom-cursor"></div>
+    <div class="grain"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-[100] p-6 md:p-10 flex justify-between items-center mix-blend-difference text-white">
+        <div class="text-2xl font-serif tracking-widest uppercase cursor-hover">Liza</div>
+        <div class="hidden md:flex gap-8 text-sm font-sans tracking-widest uppercase">
+            <a href="#about" class="cursor-hover hover:text-champagne transition-colors duration-500">Profil</a>
+            <a href="#portfolio" class="cursor-hover hover:text-champagne transition-colors duration-500">Portofolio</a>
+            <a href="#services" class="cursor-hover hover:text-champagne transition-colors duration-500">Layanan</a>
+            <a href="#book" class="cursor-hover hover:text-champagne transition-colors duration-500">Booking</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden hamburger-btn cursor-hover" aria-label="Toggle Menu">
+            <span class="hamburger-line line-1"></span>
+            <span class="hamburger-line line-2"></span>
+            <span class="hamburger-line line-3"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Sidebar -->
+    <div id="mobile-menu" class="fixed inset-0 bg-charcoal z-[60] flex flex-col items-center justify-center pointer-events-none opacity-0 transition-all duration-700">
+        <div class="flex flex-col items-center gap-8">
+            <a href="#about" class="mobile-link text-3xl font-serif text-white italic opacity-0 translate-y-8 transition-all duration-700 delay-100">Profil</a>
+            <a href="#portfolio" class="mobile-link text-3xl font-serif text-white italic opacity-0 translate-y-8 transition-all duration-700 delay-200">Portofolio</a>
+            <a href="#services" class="mobile-link text-3xl font-serif text-white italic opacity-0 translate-y-8 transition-all duration-700 delay-300">Layanan</a>
+            <a href="#book" class="mobile-link text-3xl font-serif text-white italic opacity-0 translate-y-8 transition-all duration-700 delay-400">Booking</a>
+        </div>
+        
+        <div class="mt-20 flex flex-col items-center gap-4 opacity-0 translate-y-8 transition-all duration-700 delay-500 mobile-extra">
+            <p class="text-champagne font-sans text-[10px] uppercase tracking-widest">Hubungi Kami</p>
+            <a href="https://wa.me/6282139330827" class="text-white font-sans text-sm tracking-widest">+62 821-3933-0827</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative w-full h-screen overflow-hidden bg-blush flex items-center justify-center pb-24 md:pb-0">
+        <div class="absolute inset-0 w-full h-full">
+            <picture>
+                <source srcset="/img-webp/bg-section1.webp" type="image/webp">
+                <img src="/img-jpeg/bg-section1.jpg" 
+                     alt="Beauty Model" 
+                     class="w-full h-full object-cover object-center hero-img soft-focus transform scale-110 opacity-0"
+                     data-speed="0.8">
+            </picture>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-nude/80"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 mt-0 md:mt-10">
+            <p class="hero-sub uppercase font-sans tracking-[0.3em] text-xs md:text-sm text-champagne mb-6 opacity-0 translate-y-4">
+                Premium Makeup Artist
+            </p>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-9xl text-charcoal leading-tight mb-8">
+                <span class="hero-title block">Tampil Sempurna</span>
+                <span class="italic font-light hero-title block">Di Hari Spesialmu</span>
+            </h1>
+            
+            <div class="absolute -bottom-32 md:-bottom-28 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-0 hero-scroll">
+                <span class="text-[10px] uppercase tracking-widest text-charcoal/60">Scroll untuk melihat</span>
+                <div class="w-[1px] h-16 bg-charcoal/20 relative overflow-hidden">
+                    <div class="w-full h-full bg-charcoal absolute top-0 left-0 animate-scroll-line origin-top"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 md:py-48 px-6 md:px-12 max-w-screen-2xl mx-auto relative z-10 bg-nude">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 items-center">
+            <!-- Desktop Image (Hidden on Mobile) -->
+            <div class="hidden md:block md:col-span-5 md:col-start-2 order-1">
+                <div class="reveal-img-wrapper overflow-hidden relative h-[120vw] md:h-[40vw] rounded-t-full">
+                    <picture>
+                        <source srcset="/img-webp/primary-model.webp" type="image/webp">
+                        <img src="/img-jpeg/primary-model.jpg" 
+                             alt="Makeup Transformation" 
+                             class="w-full h-full object-cover reveal-mask scale-110">
+                    </picture>
+                </div>
+            </div>
+
+            <div class="md:col-span-5 md:col-start-8 order-2 flex flex-col justify-center">
+                <!-- Text Block: Full screen on mobile -->
+                <div class="min-h-[80vh] md:min-h-0 flex flex-col justify-center mb-12 md:mb-0">
+                    <h2 class="text-4xl md:text-6xl font-serif text-charcoal mb-8">
+                        <span class="split-words">Makeup yang</span> <span class="italic text-champagne split-words">terasa seperti diri Anda</span><span class="split-words">, hanya lebih sempurna.</span>
+                    </h2>
+                    <div class="font-sans font-light text-charcoal/80 text-sm md:text-base leading-relaxed space-y-6 split-lines">
+                        <p>
+                            Kami tidak percaya pada perubahan yang berlebihan. Makeup seharusnya memperkuat karakter wajah Anda, bukan menutupinya. Setiap detail kami kerjakan dengan presisi agar hasilnya tetap terasa ringan, natural, dan elegan.
+                        </p>
+                        <p>
+                            Dipercaya oleh ratusan klien untuk momen penting mereka, kami menggabungkan teknik profesional dengan produk premium untuk memastikan hasil yang tahan lama, nyaman di kulit, dan terlihat flawless di setiap pencahayaan.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mobile Image (Hidden on Desktop) -->
+                <div class="block md:hidden my-12">
+                    <div class="reveal-img-wrapper overflow-hidden relative h-[120vw] rounded-t-full">
+                        <picture>
+                            <source srcset="/img-webp/primary-model.webp" type="image/webp">
+                            <img src="/img-jpeg/primary-model.jpg" 
+                                 alt="Makeup Transformation" 
+                                 class="w-full h-full object-cover reveal-mask scale-110">
+                        </picture>
+                    </div>
+                </div>
+                
+                <div class="mt-12 fade-up">
+                    <div class="flex items-center gap-4 mb-2">
+                        <div class="flex text-champagne">
+                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                    </div>
+                    <p class="text-xs uppercase tracking-widest text-charcoal/60 italic font-serif">"Hasilnya luar biasa, tetap terasa ringan dan sangat tahan lama. Liza benar-benar tahu apa yang wajahku butuhkan."</p>
+                    <p class="text-[10px] uppercase tracking-widest mt-4 text-charcoal/50">— Sarah, Wedding Client</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Showcase -->
+    <section id="portfolio" class="pt-24 pb-32 md:pt-32 md:pb-48 bg-nude w-full">
+        <div class="px-6 md:px-12 mb-16 md:mb-24 flex justify-between items-end max-w-screen-2xl mx-auto">
+            <h2 class="text-4xl md:text-7xl font-serif text-charcoal split-words pb-4">
+                Koleksi <span class="italic">Karya</span>
+            </h2>
+            <p class="hidden md:block text-sm uppercase tracking-widest text-charcoal/60 fade-up">Hasil Makeup Kami</p>
+        </div>
+
+        <div class="columns-2 lg:columns-4 gap-4 md:gap-6 px-4 md:px-6 w-full space-y-4 md:space-y-6">
+            {portfolioImages.map((img, i) => (
+                <div 
+                    class={`portfolio-item relative overflow-hidden group cursor-hover break-inside-avoid rounded-2xl shadow-lg mb-4 md:mb-6 ${
+                        [
+                            'aspect-[3/4]', 
+                            'aspect-square', 
+                            'aspect-[2/3]', 
+                            'aspect-[4/3]', 
+                            'aspect-[3/5]', 
+                            'aspect-[3/4]', 
+                            'aspect-[4/5]'
+                        ][i % 7]
+                    }`} 
+                    data-src={`/img-jpeg/${img.name}.jpg`}
+                >
+                    <picture>
+                        <source srcset={`/img-webp/${img.name}.webp`} type="image/webp" />
+                        <img 
+                            src={`/img-jpeg/${img.name}.jpg`} 
+                            alt={img.title} 
+                            loading="lazy" 
+                            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                        />
+                    </picture>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 md:p-6">
+                        <span class="text-champagne text-[10px] uppercase tracking-widest mb-1">{img.category}</span>
+                        <h3 class="text-white font-serif text-sm md:text-lg leading-tight">{img.title}</h3>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 bg-blush relative overflow-hidden">
+        <div class="max-w-screen-xl mx-auto px-6 md:px-12 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-6xl font-serif text-charcoal mb-4">
+                    <span class="split-words">Layanan</span> <span class="italic text-champagne split-words">Kami</span>
+                </h2>
+                <p class="font-sans text-sm tracking-widest uppercase text-charcoal/60 fade-up">Solusi Lengkap untuk Momen Spesial Anda</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+                <!-- Service Items -->
+                {[
+                    "Makeup Wedding",
+                    "Makeup Engagement",
+                    "Makeup Wisuda",
+                    "Makeup Prewed",
+                    "Makeup Event (Karnaval, Tari, dll)",
+                    "Sewa Kebaya & Kostum",
+                    "Sound System",
+                    "Dekorasi"
+                ].map((service, index) => (
+                    <div class="service-card group border border-charcoal/10 bg-nude/50 backdrop-blur-sm p-6 md:p-8 hover:bg-white cursor-hover flex flex-col justify-between min-h-[160px] md:min-h-[200px] transition-shadow duration-500 hover:shadow-xl">
+                        <div>
+                            <span class="text-champagne font-sans tracking-widest text-[10px] uppercase mb-4 block">0{index + 1}</span>
+                            <h3 class="font-serif text-lg md:text-xl text-charcoal leading-tight group-hover:text-champagne transition-colors duration-500">{service}</h3>
+                        </div>
+                        <div class="w-full h-[1px] bg-charcoal/10 group-hover:bg-champagne/50 transition-colors duration-500 mt-4 relative overflow-hidden">
+                            <div class="absolute top-0 left-0 h-full w-full bg-champagne -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section: Paket Akad -->
+    <section id="pricing" class="py-32 bg-nude relative overflow-hidden">
+        <div class="max-w-screen-xl mx-auto px-6 md:px-12 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-6xl font-serif text-charcoal mb-4">
+                    <span class="split-words">Paket</span> <span class="italic text-champagne split-words">Akad</span>
+                </h2>
+                <p class="font-sans text-sm tracking-widest uppercase text-charcoal/60 fade-up">Pilihan Terbaik untuk Momen Sakral Anda</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Paket 1 -->
+                <div class="pricing-card group bg-white p-10 border border-charcoal/5 hover:border-champagne/30 hover:shadow-2xl flex flex-col justify-between relative overflow-hidden fade-up transition-shadow duration-500">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="font-serif text-6xl">01</span>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-2xl text-charcoal mb-2">Paket Akad 1</h3>
+                        <div class="flex items-baseline gap-1 mb-8">
+                            <span class="text-sm font-sans text-charcoal/40 font-light">IDR</span>
+                            <span class="text-4xl font-serif text-champagne">700.000</span>
+                        </div>
+                        <ul class="space-y-4 font-sans font-light text-charcoal/70 text-sm">
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-champagne rounded-full"></span> Makeup
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-champagne rounded-full"></span> Hijab Do / Hair Do
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-champagne rounded-full"></span> Softlens
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-champagne rounded-full"></span> Fake Nails
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Paket 2 -->
+                <div class="pricing-card group bg-deep p-10 border border-white/5 hover:border-champagne/30 hover:shadow-2xl flex flex-col justify-between relative overflow-hidden md:-translate-y-4 fade-up transition-shadow duration-500">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="font-serif text-6xl text-white">02</span>
+                    </div>
+                    <div>
+                        <div class="bg-champagne/10 text-champagne text-[10px] uppercase tracking-widest px-3 py-1 inline-block mb-4">Recommended</div>
+                        <h3 class="font-serif text-2xl text-white mb-2">Paket Akad 2</h3>
+                        <div class="flex items-baseline gap-1 mb-8">
+                            <span class="text-sm font-sans text-white/40 font-light">IDR</span>
+                            <span class="text-4xl font-serif text-champagne">1.100.000</span>
+                        </div>
+                        <ul class="space-y-4 font-sans font-light text-white/70 text-sm">
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-champagne rounded-full"></span> Makeup (No Retouch)
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-champagne rounded-full"></span> Kebaya & Jas Pengantin
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-champagne rounded-full"></span> Hijab Do / Hair Do
+                            </li>
+                            <li class="flex items-center gap-3 text-champagne italic">
+                                <span class="w-1.5 h-1.5 bg-champagne rounded-full"></span> Free: Softlens & Fake Nails
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Paket 3 -->
+                <div class="pricing-card group bg-white p-10 border border-charcoal/5 hover:border-champagne/30 hover:shadow-2xl flex flex-col justify-between relative overflow-hidden fade-up transition-shadow duration-500">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <span class="font-serif text-6xl">03</span>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-2xl text-charcoal mb-2">Paket Akad 3</h3>
+                        <div class="flex items-baseline gap-1 mb-8">
+                            <span class="text-sm font-sans text-charcoal/40 font-light">IDR</span>
+                            <span class="text-4xl font-serif text-champagne">1.600.000</span>
+                        </div>
+                        <ul class="space-y-4 font-sans font-light text-charcoal/70 text-sm">
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-champagne rounded-full"></span> Makeup (No Retouch)
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-champagne rounded-full"></span> Sepasang Baju Pengantin
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-champagne rounded-full"></span> Melati Adat (Sunda/Solo)
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-champagne rounded-full"></span> Aksesoris Adat (Sunda/Solo Putri)
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-champagne rounded-full"></span> Sepasang Selop / Pantofel
+                            </li>
+                            <li class="flex items-center gap-3 text-champagne italic font-medium">
+                                <span class="w-1.5 h-1.5 bg-champagne rounded-full"></span> Free: Softlens, Fake Nails & Henna
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="book" class="relative h-screen flex flex-col items-center justify-center bg-deep text-nude overflow-hidden px-4">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[40vw] md:h-[40vw] bg-champagne/5 rounded-full blur-[100px]"></div>
+        
+        <div class="relative z-10 text-center flex flex-col items-center">
+            <h2 class="font-serif text-5xl md:text-8xl mb-8 text-white">
+                <span class="split-words-cta">Amankan</span> <br>
+                <span class="italic text-champagne font-light split-words-cta">Tanggal Anda</span>
+            </h2>
+            <p class="font-sans font-light text-white/60 mb-12 max-w-md mx-auto text-sm md:text-base split-lines-cta">
+                Jadwal kami sangat terbatas setiap bulannya. Segera hubungi kami untuk konsultasi gaya makeup dan booking slot untuk hari spesial Anda.
+            </p>
+            
+            <a href="https://wa.me/6282139330827" target="_blank" rel="noopener noreferrer" id="booking-cta" class="cursor-hover px-10 py-5 rounded-full border border-champagne text-white font-sans uppercase tracking-[0.2em] text-sm transition-colors duration-500 wave-btn-container z-10 bg-transparent inline-block overflow-hidden relative group">
+                <span class="relative z-20 group-hover:text-white transition-colors duration-500">Booking & Konsultasi</span>
+                <!-- Background Waves -->
+                <div class="absolute bottom-0 left-0 w-full h-full overflow-hidden leading-[0] pointer-events-none z-10 opacity-40">
+                    <div class="w-[200%] h-[40%] absolute bottom-0 left-0 wave-inner">
+                        <svg class="w-full h-full" viewBox="0 0 2000 300" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 0 100 Q 250 0, 500 100 T 1000 100 T 1500 100 T 2000 100 L 2000 300 L 0 300 Z" fill="#d4af37" />
+                        </svg>
+                    </div>
+                </div>
+                <!-- Click Fill Layer -->
+                <div id="cta-fill" class="absolute bottom-0 left-0 w-full h-0 bg-champagne z-15 transition-all duration-500 ease-out pointer-events-none"></div>
+            </a>
+        </div>
+
+
+        </div>
+    </section>
+
+    <footer class="bg-charcoal py-16 border-t border-white/5 relative z-10">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center md:items-end gap-10 text-center md:text-left">
+            <!-- Left: Brand & Address -->
+            <div class="flex flex-col gap-4 items-center md:items-start">
+                <div class="flex flex-col gap-1">
+                    <div class="text-2xl font-serif text-white tracking-widest uppercase">Liza</div>
+                    <div class="text-white/20 text-[8px] uppercase tracking-[0.2em]">
+                        Professional MUA
+                    </div>
+                </div>
+                <p class="text-white/30 text-[9px] md:text-[10px] uppercase tracking-[0.2em] max-w-[250px] leading-relaxed">
+                    Dsn Kemirigalih, RT.1/RW.1, Sawiji, Jogoroto, Kab. Jombang, Jawa Timur 61485
+                </p>
+            </div>
+
+            <!-- Right: Socials & Copyright -->
+            <div class="flex flex-col gap-4 items-center md:items-end w-full md:w-auto">
+                <!-- Social Icons -->
+                <div class="flex gap-6 items-center">
+                    <a href="https://www.instagram.com/liza_makeuppp?igsh=ZHZmNXd3aDQ0Z2Nr" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="text-white/40 hover:text-champagne transition-all duration-500 hover:scale-110"
+                       aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@liza_makeupp?_r=1&_t=ZS-95nLlFQllic" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="text-white/40 hover:text-champagne transition-all duration-500 hover:scale-110"
+                       aria-label="TikTok">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+                    </a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="flex flex-col gap-1 items-center md:items-end">
+                    <span class="text-white/20 text-[9px] md:text-[10px] uppercase tracking-[0.3em]">
+                        © 2026 Liza Makeup
+                    </span>
+                    <span class="text-white/20 text-[8px] md:text-[9px] uppercase tracking-[0.2em]">
+                        Developed by <a href="https://nexacode.dev" target="_blank" rel="noopener noreferrer" class="text-white/40 hover:text-champagne transition-colors font-medium">nexacode.dev</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fullscreen Lightbox -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-deep/95 backdrop-blur-xl hidden flex-col items-center justify-center p-4">
+        <button id="lightbox-close" class="absolute top-10 right-10 text-white font-sans uppercase tracking-widest text-sm cursor-hover z-10 opacity-70 hover:opacity-100 transition-opacity">
+            Tutup
+        </button>
+        <img id="lightbox-img" src="" alt="Fullscreen view" class="max-w-full max-h-[85vh] object-contain shadow-2xl opacity-0 transform scale-95 transition-all duration-700 ease-out">
+    </div>
+
+    <script>
+        import { initAnimations } from '../scripts/animations.js';
+        
+        // Wait for DOM to be fully ready
+        document.addEventListener('DOMContentLoaded', () => {
+            initAnimations();
+
+            // Mobile Menu Logic
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            const mobileExtra = document.querySelector('.mobile-extra');
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                mobileMenuBtn.classList.toggle('active');
+                
+                if (isMenuOpen) {
+                    mobileMenu.classList.add('active');
+                    mobileMenu.style.opacity = '1';
+                    mobileMenu.style.pointerEvents = 'auto';
+                    document.body.style.overflow = 'hidden'; // Prevent scroll
+                    
+                    // Trigger link animations
+                    mobileLinks.forEach(link => {
+                        link.style.opacity = '1';
+                        link.style.transform = 'translateY(0)';
+                    });
+                    if (mobileExtra) {
+                        mobileExtra.style.opacity = '1';
+                        mobileExtra.style.transform = 'translateY(0)';
+                    }
+                } else {
+                    mobileMenu.classList.remove('active');
+                    mobileMenu.style.opacity = '0';
+                    mobileMenu.style.pointerEvents = 'none';
+                    document.body.style.overflow = ''; // Restore scroll
+                    
+                    // Reset link animations
+                    mobileLinks.forEach(link => {
+                        link.style.opacity = '0';
+                        link.style.transform = 'translateY(2rem)';
+                    });
+                    if (mobileExtra) {
+                        mobileExtra.style.opacity = '0';
+                        mobileExtra.style.transform = 'translateY(2rem)';
+                    }
+                }
+            }
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', toggleMenu);
+            }
+
+            // Close menu when link is clicked
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (isMenuOpen) toggleMenu();
+                });
+            });
+        });
+    </script>
+</body>
+</html>

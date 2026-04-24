@@ -1,0 +1,239 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cursor-size: 30px;
+}
+
+body {
+  background-color: #fdfbf7;
+  color: #2c2a29;
+  overflow-x: hidden;
+  cursor: none; /* Hide default cursor for custom one */
+}
+
+/* Smooth Scroll / Lenis requirement */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Cursor */
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+}
+
+#custom-cursor.hovered {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  mix-blend-mode: normal;
+}
+
+/* Film Grain Overlay */
+.grain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Utility for Split Text */
+.word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.2em;
+  margin-bottom: -0.2em;
+}
+.char {
+  display: inline-block;
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.line-wrapper {
+  overflow: hidden;
+}
+.line-inner {
+  transform: translateY(100%);
+  opacity: 0;
+  display: block;
+}
+
+/* Image Masking */
+.reveal-mask {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Lightbox */
+#lightbox {
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+}
+#lightbox.active {
+  clip-path: circle(150% at 50% 50%);
+}
+
+/* Soft Image Blur */
+.soft-focus {
+  filter: blur(10px) brightness(1.2);
+  transform: scale(1.05);
+}
+
+/* Liquid Button Hover */
+.btn-liquid {
+  position: relative;
+  overflow: hidden;
+}
+.btn-liquid::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #d4af37;
+  border-radius: 50%;
+  transform: translateY(100%) scale(2);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: -1;
+}
+.btn-liquid:hover::after {
+  transform: translateY(0) scale(2);
+}
+.btn-liquid:hover {
+  color: #fff;
+  border-color: #d4af37;
+}
+
+/* Custom animations */
+@keyframes scroll-line {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.1% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+.animate-scroll-line {
+  animation: scroll-line 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+.wave-btn-container {
+  /* Container for GSAP controlled waves */
+}
+
+/* Custom Scrollbar for Modal */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.5);
+}
+
+/* Flatpickr Custom Theme */
+.flatpickr-calendar {
+  background: #fcfbf7 !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(212, 175, 55, 0.1) !important;
+  border-radius: 20px !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.flatpickr-day.selected {
+  background: #d4af37 !important;
+  border-color: #d4af37 !important;
+}
+
+.flatpickr-months .flatpickr-month {
+  color: #1a1a1a !important;
+  fill: #1a1a1a !important;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  font-family: 'Playfair Display', serif !important;
+}
+
+/* Hamburger Button */
+.hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 24px;
+  position: relative;
+  z-index: 101;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.4s ease;
+  position: absolute;
+}
+
+.line-1 { transform: translateY(-8px); }
+.line-2 { transform: translateY(0); }
+.line-3 { transform: translateY(8px); }
+
+.hamburger-btn.active .line-1 { transform: translateY(0) rotate(45deg); }
+.hamburger-btn.active .line-2 { opacity: 0; }
+.hamburger-btn.active .line-3 { transform: translateY(0) rotate(-45deg); }
+
+/* Mobile Menu Transitions */
+#mobile-menu.active {
+    clip-path: circle(150% at 100% 0%);
+}
+
+#mobile-menu {
+    clip-path: circle(0% at 100% 0%);
+    transition: clip-path 0.8s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.5s ease;
+}
