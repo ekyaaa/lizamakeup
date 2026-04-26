@@ -1,14 +1,33 @@
 ---
 import '../styles/global.css';
-
 const portfolioImages = [
-  { id: 1, name: 'bride-portfolio-1', category: 'Wedding', title: 'Makeup Wedding Jombang - Eternal Elegance' },
-  { id: 2, name: 'party-portfolio1', category: 'Party', title: 'Makeup Wisuda & Party - Midnight Glam' },
-  { id: 3, name: 'bride-portfolio-2', category: 'Wedding', title: 'Rias Pengantin Tradisional Jombang' },
-  { id: 4, name: 'bride-portfolio-3', category: 'Wedding', title: 'Modern Bridal Makeup Jombang' },
-  { id: 5, name: 'bride-portfolio-4', category: 'Wedding', title: 'Makeup Wedding Premium Jawa Timur' },
-  { id: 6, name: 'party-portfolio2', category: 'Party', title: 'Elegant Evening Makeup' },
-  { id: 7, name: 'carnaval-portfolio1', category: 'Event', title: 'Makeup Carnaval & Event Jombang' }
+  { id: 1, name: 'bride-portfolio-1', category: 'Akad & Pernikahan', title: 'Pesona Lembut untuk Langkah di Hari Sakral', aspect: 'aspect-[3/4]' },
+  { id: 2, name: 'party-portfolio1', category: 'Resepsi & Acara Spesial', title: 'Tampilan Glamor untuk Momen Undangan Istimewa', aspect: 'aspect-square' },
+  { id: 3, name: 'bride-portfolio-2', category: 'Pengantin Tradisional', title: 'Keanggunan Adat dengan Sentuhan Detail Halus', aspect: 'aspect-[2/3]' },
+  { id: 4, name: 'bride-portfolio-3', category: 'Pengantin Modern', title: 'Riasan Bersih dan Elegan untuk Gaya Kontemporer', aspect: 'aspect-[4/5]' },
+  { id: 5, name: 'bride-portfolio-4', category: 'Pengantin Premium', title: 'Tampilan Mewah dengan Finishing Sempurna', aspect: 'aspect-[3/5]' },
+  { id: 6, name: 'party-portfolio2', category: 'Resepsi Malam', title: 'Kilau Elegan untuk Acara Malam yang Berkesan', aspect: 'aspect-[3/4]' },
+  { id: 7, name: 'carnaval-portfolio1', category: 'Event & Panggung', title: 'Eksplorasi Artistik untuk Acara dan Pertunjukan', aspect: 'aspect-square' },
+
+  { id: 8, name: 'formal-portfolio1', category: 'Formal Profesional', title: 'Tampilan Rapi dan Percaya Diri untuk Acara Resmi', aspect: 'aspect-[2/3]' },
+  { id: 9, name: 'formal-portfolio2', category: 'Formal Elegan', title: 'Sentuhan Halus dengan Kesan Berkelas', aspect: 'aspect-[4/5]' },
+  { id: 10, name: 'bride-portfolio-5', category: 'Pengantin Royal', title: 'Nuansa Megah dengan Detail Berkelas', aspect: 'aspect-[3/4]' },
+  { id: 11, name: 'bride-portfolio-6', category: 'Pengantin Klasik', title: 'Kecantikan Abadi dengan Sentuhan Tradisional Modern', aspect: 'aspect-square' },
+  { id: 12, name: 'party-portfolio3', category: 'Acara Spesial', title: 'Riasan Lembut dengan Sentuhan Glowing Natural', aspect: 'aspect-[2/3]' },
+  { id: 13, name: 'party-portfolio4', category: 'Resepsi & Undangan', title: 'Tampilan Anggun untuk Hadir di Momen Berharga', aspect: 'aspect-[4/5]' },
+  { id: 14, name: 'formal-portfolio3', category: 'Formal Profesional', title: 'Tampilan Tegas dan Bersih untuk Kesan Profesional', aspect: 'aspect-[3/5]' },
+  { id: 15, name: 'bride-portfolio-7', category: 'Akad & Pernikahan', title: 'Pesona Natural yang Tahan Sepanjang Acara', aspect: 'aspect-[3/4]' },
+  { id: 16, name: 'formal-portfolio4', category: 'Formal Minimalis', title: 'Keindahan Sederhana dengan Dampak Maksimal', aspect: 'aspect-square' },
+  { id: 17, name: 'formal-portfolio5', category: 'Formal Elegan', title: 'Keseimbangan Anggun untuk Penampilan Berkelas', aspect: 'aspect-[2/3]' },
+  { id: 18, name: 'formal-portfolio6', category: 'Transformasi Look', title: 'Perubahan Halus Menuju Tampilan Lebih Terdefinisi', aspect: 'aspect-[4/5]' },
+  { id: 19, name: 'party-portfolio5', category: 'Acara Keluarga', title: 'Look Segar dan Ringan untuk Suasana Hangat', aspect: 'aspect-[3/5]' },
+  { id: 20, name: 'formal-portfolio7', category: 'Formal Tegas', title: 'Struktur Rapi dengan Detail Presisi', aspect: 'aspect-[3/4]' },
+  { id: 21, name: 'carnaval-portfolio2', category: 'Event Kreatif', title: 'Gaya Berani untuk Konsep yang Unik', aspect: 'aspect-square' },
+  { id: 22, name: 'formal-portfolio8', category: 'Formal Klasik', title: 'Sentuhan Elegan yang Tidak Lekang Waktu', aspect: 'aspect-[2/3]' },
+  { id: 23, name: 'carnaval-portfolio3', category: 'Event Artistik', title: 'Eksplorasi Kreatif dengan Karakter Kuat', aspect: 'aspect-[4/5]' },
+  { id: 24, name: 'carnaval-portfolio4', category: 'Festival & Event', title: 'Tampilan Meriah untuk Suasana Penuh Energi', aspect: 'aspect-[3/4]' },
+  { id: 25, name: 'carnaval-portfolio5', category: 'Panggung & Show', title: 'Penampilan Menonjol di Bawah Sorotan Lampu', aspect: 'aspect-square' },
+  { id: 26, name: 'formal-portfolio9', category: 'Formal Abadi', title: 'Keanggunan yang Memberi Kesan Mendalam', aspect: 'aspect-[2/3]' }
 ];
 ---
 
@@ -235,8 +254,8 @@ const portfolioImages = [
                             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                         </div>
                     </div>
-                    <p class="text-xs uppercase tracking-widest text-charcoal/60 italic font-serif">"Hasilnya luar biasa, tetap terasa ringan dan sangat tahan lama. Liza benar-benar tahu apa yang wajahku butuhkan."</p>
-                    <p class="text-[10px] uppercase tracking-widest mt-4 text-charcoal/50">— Sarah, Wedding Client</p>
+                    <p class="text-xs uppercase tracking-widest text-charcoal/60 italic font-serif">"Soft glam, rapi, dan elegan warna pink/rose-nya menyatu dengan hijab, memberi kesan feminin dan fresh. Base halus, eye makeup tegas tapi tetap natural, dan lipstik nude pink sangat cocok. Cantik, serasi, dan cocok untuk acara formal🌸💗"</p>
+                    <p class="text-[10px] uppercase tracking-widest mt-4 text-charcoal/50">— Natasya, Makeup Client</p>
                 </div>
             </div>
         </div>
@@ -252,19 +271,9 @@ const portfolioImages = [
         </div>
 
         <div class="columns-2 lg:columns-4 gap-4 md:gap-6 px-4 md:px-6 w-full space-y-4 md:space-y-6">
-            {portfolioImages.map((img, i) => (
+            {portfolioImages.map((img) => (
                 <div 
-                    class={`portfolio-item relative overflow-hidden group cursor-hover break-inside-avoid rounded-2xl shadow-lg mb-4 md:mb-6 ${
-                        [
-                            'aspect-[3/4]', 
-                            'aspect-square', 
-                            'aspect-[2/3]', 
-                            'aspect-[4/3]', 
-                            'aspect-[3/5]', 
-                            'aspect-[3/4]', 
-                            'aspect-[4/5]'
-                        ][i % 7]
-                    }`} 
+                    class={`portfolio-item relative overflow-hidden group cursor-hover break-inside-avoid rounded-2xl shadow-lg mb-4 md:mb-6 ${img.aspect}`} 
                     data-src={`/img-jpeg/${img.name}.jpg`}
                 >
                     <picture>
